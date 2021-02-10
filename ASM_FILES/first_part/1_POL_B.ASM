@@ -1,0 +1,40 @@
+STARTT 	START 	0
+		CLEAR A
+		CLEAR T
+		CLEAR S
+		
+		LDA X
+		ADDR A, S
+		LDA S4
+		ADDR A, T
+		MULR S, T
+		
+		LDA S3
+		ADDR A, T
+		MULR S, T
+		
+		LDA S2
+		ADDR A, T
+		MULR S, T
+		
+		LDA S1
+		ADDR A, T
+		MULR S, T
+		
+		LDA S0
+		ADDR A, T
+		
+		CLEAR A
+		ADDR T, A
+		STA SUM
+
+HALT	J 		HALT
+
+X		WORD 2
+SUM		WORD 0
+
+S4	WORD 1
+S3	WORD 2
+S2 	WORD 3
+S1 	WORD 4
+S0 	WORD 5

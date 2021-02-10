@@ -1,0 +1,63 @@
+STARTT 	START 	0
+		CLEAR A
+		CLEAR T
+		CLEAR S
+		
+		. 5 ČLEN
+		LDA S0
+		STA SUM
+		
+		. 4. ČLEN
+		LDA X
+		ADDR A, T
+		RMO T, A
+		MUL S1
+		
+		RMO A, S
+		LDA SUM
+		ADDR S, A
+		STA SUM
+		
+		
+		. 3. ČLEN
+		LDA X
+		MULR A, T
+		RMO T, A
+		MUL S2
+		
+		RMO A, S
+		LDA SUM
+		ADDR S, A
+		STA SUM
+		
+		. 2. ČLEN
+		LDA X
+		MULR A, T
+		RMO T, A
+		MUL S3
+		
+		RMO A, S
+		LDA SUM
+		ADDR S, A
+		STA SUM
+		
+		. 1. ČLEN
+		LDA X
+		MULR A, T
+		RMO T, A
+		MUL S4
+		
+		RMO A, S
+		LDA SUM
+		ADDR S, A
+		STA SUM
+HALT	J 		HALT
+
+X		WORD 3
+SUM		WORD 0
+
+S4	WORD 1
+S3	WORD 2
+S2 	WORD 3
+S1 	WORD 4
+S0 	WORD 5

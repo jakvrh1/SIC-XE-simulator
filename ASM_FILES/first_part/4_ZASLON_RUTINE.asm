@@ -1,0 +1,87 @@
+STARTT 	START 	0
+
+		LDA zaslon
+		STA OFFSET
+		LDA =56
+		STCH @OFFSET
+		
+		LDA OFFSET
+		ADD =79
+		STA OFFSET
+		LDA =56
+		STCH @OFFSET
+		
+		LDA OFFSET
+		ADD =921
+		STA OFFSET
+		LDA =56
+		STCH @OFFSET
+		
+		LDA zaslon
+		ADD =1920
+		STA OFFSET
+		LDA =56
+		STCH @OFFSET
+		
+		LDA zaslon
+		ADD =1999
+		STA OFFSET
+		LDA =56
+		STCH @OFFSET
+		
+		CLEAR A
+		ADD =78
+		JSUB scrfill
+		
+HALT	J	HALT
+
+scrfill
+			STA CHAR
+			LDA zaslon
+			STA OFFSET
+		
+		
+LOOP_FILL	LDA CHAR
+			STCH @OFFSET
+		
+			LDA OFFSET
+			ADD =1
+			STA OFFSET
+		
+			COMP konecZaslona
+			JLT LOOP_FILL
+		
+
+scrclear
+			LDA zaslon
+			STA OFFSET
+		
+		
+LOOP_CLEAR	LDA =32
+			STCH @OFFSET
+		
+			LDA OFFSET
+			ADD =1
+			STA OFFSET
+		
+			COMP konecZaslona
+			JLT LOOP_CLEAR
+		
+			RSUB
+		
+. DATA
+OFFSET 	WORD 0
+CHAR	WORD 0
+
+scrrows	WORD 25
+scrcols	WORD 80
+zaslon	WORD 47104
+konecZaslona WORD 49104
+
+
+STDIN	BYTE X'00'
+STDOUT	BYTE X'01'
+
+TEMP_A	WORD 0
+TEMP_S	WORD 0
+TEMP_T	WORD 0
